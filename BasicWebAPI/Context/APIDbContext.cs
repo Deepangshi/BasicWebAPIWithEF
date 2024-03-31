@@ -8,5 +8,7 @@ namespace BasicWebAPI.Context
         public APIDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<EmployeeData> EmployeeDatas { get; set; }
     }
 }
