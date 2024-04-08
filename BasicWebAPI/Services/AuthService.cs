@@ -28,9 +28,9 @@ namespace BasicWebAPI.Services
         //JWT 
         public string Login(LoginRequest loginRequest)
         {
-            if(loginRequest.Username!= null && loginRequest.Password!= null)
+            if(loginRequest.Useremail!= null && loginRequest.Password!= null)
             {
-                var user = _apidbService.Users.SingleOrDefault(s => s.Email == loginRequest.Username && s.Password == loginRequest.Password);
+                var user = _apidbService.Users.SingleOrDefault(s => s.Email == loginRequest.Useremail && s.Password == loginRequest.Password);
                 if(user != null)
                 {
                     var claims = new[]
@@ -46,13 +46,21 @@ namespace BasicWebAPI.Services
                         _configuration["Jwt:Issuer"],
                         _configuration["Jwt:Audience"],
                         claims,
-                        expires: DateTime.UtcNow.AddDays(1),
+                        expires: DateTime.UtcNow.AddHours(3),
                         signingCredentials: signIn
                         );
                     var jwtToken = (new JwtSecurityTokenHandler().WriteToken(token));
                     return jwtToken;
 
                 }
+                else 
+                {
+                    throw new Exception("invalid user!");
+                }
+            }
+            else 
+            {
+                throw new Exception("invalid credential!");
             }
         }
     }
