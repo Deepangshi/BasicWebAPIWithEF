@@ -20,12 +20,12 @@ The project is a simple web application for managing employee data. It uses ASP.
 
 - **ASP.NET Core 7**: for building the web api.
 - **Entity Framework Core**: is used as an ORM in order to interact with the underlying SQL Database.
-- **SQL Server** Express Edition (as a lightweight, free RDBMS)
+- **SQL Server**: is being utilized as a lightweight database server.
 - **JWT**: JSON Web Tokens are utilized for user authentication.
 
 Key features
 
-- The auth ang signin endpoint, known as `auth`, allows users to securely access the system
+- The authentication and signin endpoint, known as `auth`, allows users to securely access the system
 - To view employee data, simply make a request to the endpoint using a valid credentials.
-- However, viewing employee details, no auuthentication is required, making it easier to access.
+- However, viewing employee details, no authentication is required, making it easier to access.
 - CRUD capabilities on employees can be performed by authenticated users.
